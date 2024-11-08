@@ -1,0 +1,63 @@
+{
+  "description": {
+    "title": "",
+    "text": ""
+  },
+  "links_1": {
+    "list_pages": false,
+    "title": "Institucional",
+    "list": [
+      {
+        "text": "Blog"
+      },
+      {
+        "text": "Quem somos"
+      },
+      {
+        "text": "Fale conosco"
+      },
+      {
+        "text": "Política de troca"
+      },
+      {
+        "text": "Política de privacidade"
+      },
+      {
+        "text": "Termos e condições de compra"
+      }
+    ]
+  },
+  "links_2": {
+    "list_categories": false,
+    "title": "",
+    "list": []
+  },
+  "contacts": {
+    "title": "",
+    "phone_wpp": true,
+    "socials": true,
+    "email": false,
+    "address": true
+  },
+  "stamps": [
+    {
+      "src": "/img/uploads/image-20.png",
+      "alt": "Secure connection",
+      "width": 150,
+      "height": 62
+    },
+    {
+      "src": "/img/uploads/image-21.png"
+    }
+  ],
+  "payment_methods": {
+    "pix": true,
+    "visa": true,
+    "mastercard": true,
+    "elo": true,
+    "amex": true,
+    "hipercard": true,
+    "boleto": true
+  },
+  "credits": "©2024. EDI Editora - Classical Press - 29524877000163. Todos os direitos reservados."
+}

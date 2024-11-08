@@ -1,0 +1,23 @@
+{
+  "categories_list": {
+    "featured": [],
+    "random": 0,
+    "full_width": false
+  },
+  "menu_all_departments": false,
+  "centralized_logo": false,
+  "marketing_stripe": {
+    "text": "",
+    "link": ""
+  },
+  "alphabetical_order_submenu": true,
+  "name_all_departments": "",
+  "search_input": true,
+  "desktop_megamenu": false,
+  "full_width_submenu": false,
+  "contacts_stripe": {
+    "pages": [],
+    "phone_wpp": false,
+    "socials": false
+  }
+}

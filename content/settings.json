@@ -1,0 +1,26 @@
+{
+  "domain": "manuais.classicalpress.com.br",
+  "currency_symbol": "R$",
+  "primary_color": "#2c3e50",
+  "theme": {
+    "bootswatch": "_",
+    "custom": "clean-white"
+  },
+  "bg_color": "#ffffff",
+  "logo": "/img/uploads/logoclassicalpress.png",
+  "repository": "ecomplus-stores/manuaisclassicalconversations",
+  "name": "Classical Press ",
+  "short_name": "manuais.classicalpress",
+  "lang": "pt_br",
+  "currency": "BRL",
+  "mini_logo": "",
+  "font_family": "_",
+  "favicon": "/img/uploads/faviconv2.png",
+  "icons_font": "_",
+  "country_code": "BR",
+  "secondary_color": "#4f4f4f",
+  "icon": "/img/uploads/faviconv2.png",
+  "store_id": 51504,
+  "description": "manuais.classicalpress",
+  "large_icon": "/img/uploads/faviconv2.png"
+}

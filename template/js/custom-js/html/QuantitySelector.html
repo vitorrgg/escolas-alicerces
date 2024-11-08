@@ -1,0 +1,99 @@
+<div class="quantity-selector">
+  <div
+    class="quantity-selector__item"
+    v-for="item in items"
+  >
+    <div class="row align-items-center">
+      <div class="col-auto">
+        <div class="d-flex quantity-selector__btn-container">
+          <button
+            class="btn btn-sm btn-link col-sm-3"
+            type="button"
+            @click="changeQnt(item, -1)"
+            :disabled="item.min_quantity >= selectedQnts[item._id]"
+          >
+            <i class="i-chevron-down"></i>
+          </button>
+          <input
+            type="tel"
+            class="form-control quantity-selector__input col-sm-6"
+            @change="ev => changeQnt(item, null, ev)"
+            @keyup.up="changeQnt(item, 1)"
+            @keyup.down="changeQnt(item, -1)"
+            :value="selectedQnts[item._id]"
+            :disabled="!checkInStock(item)"
+            :readonly="item.min_quantity && item.min_quantity === item.max_quantity"
+          >
+          <button
+            class="btn btn-sm btn-link col-sm-3"
+            type="button"
+            @click="changeQnt(item, 1)"
+            :disabled="item.max_quantity <= selectedQnts[item._id]"
+          >
+            <i class="i-chevron-up"></i>
+          </button>
+        </div>
+      </div>
+      <div class="col pl-0">
+        <span class="quantity-selector__label">
+          <slot v-bind="{ item }">
+            <a-link
+              v-if="item.slug"
+              target="_blank"
+              :href="`/${item.slug}`"
+              :title="item.name"
+            >
+              {{ item.name }}
+            </a-link>
+            <template v-else>
+              {{ item.name }}
+            </template>
+          </slot>
+        </span>
+      </div>
+      <div class="col-auto">
+        <div class="d-flex flex-column apx-kit-info">
+          <div>{{ item.price.toLocaleString('pt-BR',{style:'currency',currency:'BRL'}) }}/un</div>
+          <div><b>Disponibilidade:</b><br><span :class="item.available ? 'green' : 'red'">{{ item.available ? 'Em estoque' : 'Indisponível' }}</span></div>          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <a-alert :can-show="hasMinAlert">
+    {{ i19minQuantity }}:
+    <strong>{{ min }}</strong>
+  </a-alert>
+
+  <a-alert
+    :can-show="hasMaxAlert"
+    :variant="alertVariant"
+  >
+    {{ i19maxQuantity }}:
+    <strong>{{ max }}</strong>
+  </a-alert>
+
+  <div
+    v-if="hasBuyButton"
+    class="quantity-selector__buy product__buy"
+  >
+    <slot
+      name="buy"
+      v-bind="{ selectedQnts, buy }"
+    >
+      <button
+        type="button"
+        class="btn btn-lg btn-primary my-3"
+        @click="buy"
+      >
+        <span>
+          <span>Adicionar ao carrinho</span>
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2.33333 2.33337H3.85719C4.14421 2.33337 4.28772 2.33337 4.40321 2.38615C4.50498 2.43267 4.59123 2.50747 4.65167 2.60164C4.72025 2.70851 4.74055 2.85058 4.78114 3.13471L5.33333 7.00004M5.33333 7.00004L6.56053 16.02C6.71627 17.1647 6.79414 17.737 7.06778 18.1678C7.3089 18.5474 7.65459 18.8492 8.06324 19.037C8.527 19.25 9.1046 19.25 10.2598 19.25H20.244C21.3436 19.25 21.8934 19.25 22.3428 19.0522C22.739 18.8777 23.0788 18.5965 23.3243 18.24C23.6027 17.8356 23.7056 17.2955 23.9114 16.2153L25.4556 8.10801C25.528 7.72782 25.5642 7.53772 25.5118 7.38912C25.4657 7.25877 25.3749 7.14901 25.2555 7.07939C25.1193 7.00004 24.9258 7.00004 24.5388 7.00004H5.33333ZM11.6667 24.5C11.6667 25.1444 11.1443 25.6667 10.5 25.6667C9.85566 25.6667 9.33333 25.1444 9.33333 24.5C9.33333 23.8557 9.85566 23.3334 10.5 23.3334C11.1443 23.3334 11.6667 23.8557 11.6667 24.5ZM21 24.5C21 25.1444 20.4777 25.6667 19.8333 25.6667C19.189 25.6667 18.6667 25.1444 18.6667 24.5C18.6667 23.8557 19.189 23.3334 19.8333 23.3334C20.4777 23.3334 21 23.8557 21 24.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </span>
+      </button>
+    </slot>
+  </div>
+</div>
